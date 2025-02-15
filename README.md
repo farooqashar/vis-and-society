@@ -1,1 +1,1 @@
-MIT Data Visualization and Society Class A2
+MIT Data Visualization and Society Class
