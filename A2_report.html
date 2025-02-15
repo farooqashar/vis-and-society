@@ -1,0 +1,290 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>Vis & Society Assignment 2</title>
+	<link rel="stylesheet" href="https://vis-society.github.io/assignments/report.css" />
+</head>
+
+<body>
+	<header>
+		<h1>
+			<small>Assignment 2</small>
+			Exploratory Data Analysis
+		</h1>
+
+		<p>
+			<strong>Ashar Farooq</strong> — <em>afarooq@mit.edu</em>
+		</p>
+	</header>
+	<main>
+		<section>
+			<h2>Subtheme: Speculation</h2>
+
+			<h3>Data Quality and Overview</h3>
+
+			The dataset used for this analysis contains information about all residential sales transactions in the Metro Boston region between 2000-2023.
+			The fields include information about seller, buyer, price, location, and more. There appears to be 63 total columns with each column having
+			different styles of data encoded, such as binary 0/1 with fields like buyer_bnk_ind (buyer is a bank), buyer_gov_ind(buyer is a government entity), etc.
+			These are indicator variables for the existence of some 0 or 1 category. There are other numerical fields like the price of the transaction sale.
+			We must be careful about each column and the given range of the values in addition to understanding what null means. For example, a null value
+			in the price field represents a mortage transaction. The first step of the analysis thus is to determine the overall data quality and
+			what's contained in it before proceeding with the analysis.
+
+			<figure>
+				<img src="Null Status.png" alt="" />
+				<figcaption>
+				To start our data analysis, it is important to get a sense of what data is missing or may not be complete. After browsing the different
+				fields of the dataset, I noticed that most of the major fields and columns like the indicator variables, average price, property type, etc.
+				all had similar counts of records, meaning there wasn't a lot of variation in terms of some critical column having too many null values. This
+				made more sense since many of the fields were indicator variables that had to be either 0 or 1 and other numerical values could be 0 instead of
+				null, which means there is meaning here. After browsing, I did notice some columns had many null values and wanted to investigate. Figure 1
+				shows 7 columns that has a lot of missing values in the form of null. To create this figure, I had to create some advanced pivot columns and
+				values and separate out the fields via a calculated field of null status based on the pivot columns. In the end, we can see various columns
+				sorted by decreasing null-values. We notice that the month horizon field has more than 30,000 null values. This column represents the flip horizon
+				field in months and is represented by a character like 24+. There aren't too many unique values in the flip horizon columns overall, thus this number of
+				null values in the month horizon may be higher than normal. At any level, I think this is still a high number of null values, thus there is some
+				complexity in having columns that relate to each other. Other fields like price difference and price difference percentage also has quite a
+				high number of null values. This is likely due to the fact that many of the transactions may not be flips, so the price difference between flips
+				may not be a meaningful statistic. It is possible that a property only had 1 transaction, thus there is no notion of conseuctive transactions
+				to conduct an analysis for these fields. Other columns may be more niche and not apply to each transaction, thus has a decent number of null values
+				like the last sale deed filing date or number of single-family residence purchases attached to the buyer. Overall, there does exist many fields with
+				high null values, but overall the critical fields seem to have meaningful information. There is lack of various information, thus caution will be
+				needed for analysis.
+
+				</figcaption>
+			</figure>
+
+			<figure>
+				<img src="Counts.png" alt="" />
+				<figcaption>
+				After looking at null values for various fields, I was curious about the different values that actually do exist, thus asked a follow up
+				question of what is the breath of the ranges for various fields in the dataset? In other words, do many values repeat in the columns or
+				is it all varied? This is what this figure is answering by taking 4 fields and getting the distinct counts of the values in each of these
+				columns. There was some advanced data transformation to try to find diverse set of column values, such as not having all the columns be indicator
+				columns. In addition, there was an issue of what distinct means in each case as some cases of empty spaces made it so that two entities that
+				were actually the same were not being treated as the same due to extra whitespace, etc. that were accidentall introduced when browsing the data.
+				The figure shows that the answer to my question is that there is a diverse set of columns where some have only a few values that repeat a lot while others
+				contain extremely unique values. For instance, address and the locations of the residences across the dataset seem to be different and unique while
+				an indicator column for whether a transaction was a cash transaction or not only had 2 unique values. As a sanity check, there were 23 unique
+				values for the year column, which makes sense as the range for the data was from roughly 2000 to 2023, thus we have data for the years in the
+				correct range. The distinct values for the number of bathrooms was a shock to me as it showed 13 unique values, which seems high for the number
+				of bathrooms in a house. I investigated this by looking at the dataset and found out that there were high values like 11, etc. for the number of
+				bathrooms. Hypothesizing that this was due to the property type, I found instances of records where there were family-style luxurious mansions
+				that contained high number of bathrooms. I also realized that I have been to and seen some of these mansions that are outliers, such as the
+				former mansion of the Governor of Massachusetts, which is a fraternity at MIT now on Hereford Street. All of this helps contextualize the dataset
+				and connect it to reality.
+				</figcaption>
+			</figure>
+
+			<figure>
+				<img src="Time and Zip Code.png" width="1000" alt="" />
+				<figcaption>
+				Being inspired from the high number of bathrooms and luxurious mansions dilemma, I decided to investigate how many transactions
+				occurred in what zip codes over the 20 plus years of data that exists to see if the transactions are all over the place or seems
+				to be concentrated. The figure has the zip codes on the left size and the years across the top. The intersection of these two axes
+				tell the number of transactions that occurred in that zip code in that year. The darker colors reprsent more transactions, thus revealing
+				the insight that a few zip codes take the prize of having many transactions, some being consistent across the time period as well. For instance,
+				it seems like the 02116 zipcode has had a high number of transactions throughout the time period. This led me to ask a followup of what makes
+				this zipcode unique. After some research, I realized that this is one of the areas that is included in Boston's extremely luxurious Beacon Hill
+				neighborhood. This can explain the high prices of homes in that area today since flipping the homes and speculation of these homes can lead
+				to high number of transactions with each transaction essentially raising the price of the home. This is certainly problematic for the average
+				resident of the city as they can't afford higher prices of homes as entire neighborhoods seem to be victims of speculation and lack of affordable housing.
+
+
+				</figcaption>
+			</figure>
+
+			<h3>Overall Analysis Questions</h3>
+			<ol>
+				<li>What makes a property a prime target for investors' speculation investment strategy?</li>
+					<i>Motivation:</i> A main question that came into my mind was what makes a certain property more appealing for people
+					to throw everything at trying to invest in it and make profits? Given the limited amount of homes overall, is There
+					something that we can do to make homes overall less likely to be a victim of speculation without ruining the quality
+					of the homes? This is mainly from my experience of looking at homes and wondering why one home next to another home
+					is just so much more expensive for seemingly no reason. I also have traveled around the different neighborhoods of Boston and
+					there are sometimes copy cat homes with different prices. The Homes for Profit MAPC article talked about a "housing submarket",
+					a collection of neighborhoods—some next to each other, some not—with similar housing stock and housing market characteristics.
+					This motivated me to wonder if there are other factors that fuels this speculative investment and if that can be avoided by removing these
+					factors to create less speculative investment and more affordable housing?
+				<li>How have luxury high-rises evolved over time?</li>
+				<i>Motivation:</i> The Boston Globe article on Boston's Towers of Wealth was quite illumniating as I have seen first-hand the
+				rise of these massive skyscrapers and high-rises, especially in areas like Seaport which have extremely high home prices. The Boston
+				Globe article mentioned a double edged sword of these high-rises creating more jobs for the city with the expense of affordable housing.
+				There seems to be more high-rises that are being built and planned, such as Echelon Seaport and the South Station Tower, that I have seen
+				posters for in-person, thus the motivation for understanding how expensive high-rises have become and how they can fit into an already
+				bustling-city is there for me. Investigating the previous question about what makes a property a prime target also led me to question
+				how much appeal a high-rise has for speculation.
+				<li>How profitable are short-term vs. long-term flips?</li>
+				<i>Motivation:</i> I was interested in whether there are incentives for wealthy investors to invest for a long time or short time as
+				shorter investment could lead to more turnover of properties, which can often lead to higher prices due to more transactions. On the other hand,
+				it may be more profitable for investors to hold on to the property for a long time, but that may lead to more homes that are not occupied purely
+				because the investors want to make more money. Therefore, the motivation for this question is based on investigating the time of flips and whether
+				that can inform us something about the problem of speculation.
+				<li>How has mortgage usage evolved over time across different investor types?</li>
+				<i>Motivation:</i> Given the history of the 2008 Recession and the economic downturn because of the COVID-19 pandemic, I was motivated
+				to learn about how transactions with mortage have changed throughout the time period. In addition, there have been many changes to interest rates
+				mortages in the housing space over time. Personally, my family bought a house in 2016 with a mortage transaction and there have been an increase
+				in mortage costs overall, thus was curious as to how speculation and investors may be causing harm to average residents. This question can also
+				hint at how many investors deal with cash-only transactions and if that may be contributing to housing issues.
+			</ol>
+		</section>
+
+		<section>
+			<h2>Discoveries & Insights</h2>
+
+			<figure>
+				<img src="Investors Usage of Property.png" alt="" />
+				<figcaption>
+				To start out with understanding what about a property makes it a prime candidate for this death trap of speculative investment leading to
+				higher prices of homes and less affordable housing, I was curious about how the type of the housing and what it's used for contributes to
+				speculation. To this effect, this graphic showcases the usage types of various different properties that an LLC bought. In other words, the larger
+				bubbles tells us that there were more properties of that particular usage that an LLC bought over the entire time period. The insight that
+				the figure tells us is that condomoniums seemed to be a pretty high usage of properties that an LLC bought. This seems to suggest that various
+				LLCs like to do speculation on properties that can return high profits due to the number of people living in it. Many condos can enable many
+				people to live in it, which can mean that investing in these properties can result in more people being part of the transactions. This is true as
+				the usage type of many properties is also 4-8 and 9 unit apartments, which also involve many people. This seems to be a double edged sword
+				as this atleast allows many people to have housing, but it also screws over many people. LLCs could just leave many condos alone, but that may mean
+				the quality and ability to live in these condos may not be that great. Perhaps the LLCs can diversify what they invest in to allow as many people
+				to have a place to live. If many people share the intense high costs of condos and apartments, there may be an opportunity to make housing a reality
+				for more people. There are other factors that may affect what properties are prime targets for speculative investment than just the usage.
+				</figcaption>
+			</figure>
+
+			<figure>
+				<img src="Distribution of Properties.png" width="1050" alt="" />
+				<figcaption>
+				A follow up question that resulted from looking at what makes a property a target for speculation was just how diverse and accessible
+				the properties are in addition to their usage. From the previous visualization, we saw that many properties that contain many people like
+				condos and apartments tend to be invested in. The question then becomes why is housing not affordable if we have many people sharing cost. It
+				seems like the higher number of transactions that occur for these condos and apartments along with just the environment that the properties are located in
+				contributes to more speuclation for these properties. This figure showcases the different properties that are part of the transactions in the dataset with
+				their zipcode. The different colors indicate different zip codes with each dot representing a property that an LLC bought. There was some data processing to
+				get some prominent zip codes as there are some zip codes that did not contain many relevent properties and were outliers to the general trend being
+				seen in the map. In addition, filtering the buyer being an LLC was done to match the subsample to the one from the previous visualization to understanding
+				what makes a property more likely to be a victim of speculation. As can be seen, it appears that the properties are all over the city in different zip codes
+				with a few clear observations. Many of these properties that are invested are in the most prominent, central, and quite well-off neighborhoods of the city.
+				From my own experience of going around Boston, I see that there are not many properties in neighborhoods like Roxbury or Dorchester (zip code like 02125, etc.).
+				These areas are not seen as prime targets due to their lower incomes, less schooling, and not as developed. I had a follow up question here
+				of whether there are good transportation networks near the homes that are prime targets and those are not prime targets for speculation.
+				After looking at visualizations of the T network, I noticed that some of the neighborhoods on the outskirts do not have good rail networks
+				going through it, which can lead to lower development of the area. This can be compared with the well-off areas where there is large speculation in
+				areas like Beacon Hill, Back Bay, North End, etc. These areas are more wealthy and have a relatively high cost of living, thus it is hard for properties
+				here to be that affordable despite the fact that many properties may be condos or apartments that have many people living in it. The idea
+				that can be explored for more affordable housing overall may be for speculation of homes to be more spread out and not be concentrated in only a few areas.
+
+				</figcaption>
+			</figure>
+
+			<figure>
+				<img src="High Rises Cost.png" width="1000" alt="" />
+				<figcaption>
+				 A follow up question from the previous visualization that I wanted to investigate was how high-rises compare with standard properties in terms of if they
+				 are also prime targets for speculative investment. Given that location and the type of property affected speculation, I was curious about whether
+				 high-rises have also suffered in their affordableness due to various factors. One aspect that I wanted to study first was how much spending was being
+				 done on high-rises and how that has evolved over time. This visualization shows the average price of a high rise over the time period. I had to do
+				 some data processing to first filter down the style of properties to just be high rises. After some investigation, I realized that there were issues with keeping
+				 the entire time period since the price of high-rises seemed to be off for the COVID-19 years as the entire contruction and housing industry was disrupted.
+				 This led to flawed interpretations that did not seem to resemble reality, thus I subsampled the time period for the year built for the propety to cut off to mid 2010s before the major changes
+				 would appear. This still allowed an interpretation of the Great Recession. As the visualization shows, the price of high-rises has overall increased a lot
+				 since the 1900s. Various economic events causes a spike or decrease in the prices, such a recession in the early 1990s and of course the Great Recession of 2008.
+				 These price changes matched the reality of the world. With this information, it seems like speculative investment is still related to high-rises as an average
+				 resident would not find these high-rises to be quite affordable.
+				</figcaption>
+			</figure>
+
+			<figure>
+				<img src="High Rises Purpose and Price.png" width="1000" alt="" />
+				<figcaption>
+				As a follow up to the previous visualization, I was interested in what caused the prices of high-rises and multi-use properties to increase overall and what about the
+				properties is contributing to this increase in prices and lack of affordability. To investigate this, I created a visualization that showcases the different
+				usages of properties and the average price of all the properties that have that usage. The darker and bigger squares represent a larger average price while
+				the number on a particular square represent the usage of the properties in a usecode format. To create this visualization, some data processing
+				was required to make the information make sense, such as avoiding outliers in the data for the year built for the property that would be the very early years
+				and the overall COVID-19 pandemic era, thus the time period for year built matches the previous visualization to cut off in the mid 2010s.
+				The visualization showcases that the properties, including high-rises, are costly due to a specific list of usage, such as having a department store, bank, or hotel in the property.
+				This is very plausible as these are often very common in high-rise buildings. Adding a separate filter for the style of the properties to be just
+				high-rises showcases a visualization that really only shows the usage of MXU RES+COM, which means that high-rises specifically are being used for a mix of
+				residential and commerical reasons. All of this overall suggests that high-rises are becoming even more mixed-use and the prices overall are increasing
+				significantly, thus it seems like speculative investment is high and will get higher for high-rises in the future. This will be in conjunction with more
+				commercial usage of high-rises, such as department stores, banks, etc. which will essentially turn the high-rises into the environment of luxurious
+				neighborhoods of the city like Beacon Hill.
+
+				</figcaption>
+			</figure>
+
+			<figure>
+				<img src="Flip Terms Profits.png" alt="" />
+				<figcaption>
+				After looking at high-rises and their increasing cost, a follow up to ask would be how profitable they are overall. After some research, it seems like their
+				mixed usage of commercial and residential elements can make them profitable. Comparing this to all properties and seeing what makes them profitable is a follow up
+				to investigate in this visualization via the lens of flip terms. A flip term is essentially the amount of time it takes for a property to be bought and then flipped for profits.
+				The time between the buying and the selling is essentially a flip term. The visualization shows the average price segmented by flip terms to determine how much a home
+				is worth based on the flip term, thus revealing how profitable a flip term could be. As the visualization shows, it seems like having a long flip
+				term is most profitable. This seems to make sense since an investor could buy a property, renovate/fix the property up, and wait a while before selling it for
+				a much higher price, thus gaining lots of profits. The downside for average residents due to this longer flip time is that no one is living in the house
+				during the flip term, thus furthering the problem of a lack of affordable housing since there is not enough houses where a resident can live. Perhaps
+				there should be an effort to reduce the flip term to a short flip term, which would see the second-most profitable scenario. This also makes sense since
+				the investor would not have to spend money on maintenance, renovation, etc. as much and instead can sell the house very quickly for a higher price and make profits.
+				This is still not ideal as the price of homes is still quite high, but better than having no one live in the house. A reasonable (and not exorbitant)  profit for an investor
+				would also make a big difference.
+				</figcaption>
+			</figure>
+
+			<figure>
+				<img src="Mortage Transactions Over Time.png" width="1000" alt="" />
+				<figcaption>
+				Investing in a house and then selling it for profits on a different time period can be beneficial or harmful depending on other conditions of the economy. To investigate this as a
+				follow up to the flip term profitability investigation, I created this visualization that aims to track mortage transactions over time divided by the different
+				types of investors. This can reveal information about the state of the economy and intensity of the profits. The figure showcases the percentage of transactions that are
+				mortage-based in a given year. To create the figure, some data processing for determining if a transaction is mortage-based or not via a custom calculated field
+				needed to be done in addition to adding segmentation for various investor types. The visualization shows that there is a wide diversity in the trends
+				for mortage transactions for different investor types. For instance, we can see that some institutional and large investors tend to have a lot of mortage-based
+				transactions as they likely work with many individuals and properties. However, this changes based on the status of the economy.  We can see that non-investors like average residents tend to have a lot of mortage-based
+				transactions since they do not have the financial means to just outright buy a house with all of the money, including cash. Many of the smaller
+				investors have some cash that can be used for transactions. All of the different investor types had a downward trend of mortage-based transactions during
+				turbulent economic times like the 2008 Recession. Many mortage transactions picked up during the recovery from the COVID-19 pandemic although the effects of that
+				period is still evolving.
+				</figcaption>
+			</figure>
+
+		<figure>
+				<img src="Changes Over Time.png" width="1000" alt="" />
+				<figcaption>
+					The changes in the percentage of mortage transactions led me to a follow up of connecting the mortage transactions to state of economy to
+					the overall changes in the price difference of properties, which may be fueled by other factors like the rate of flips happening. With more flips happening,
+					there are more transactions of which many could be mortage-related as the prices of the homes are likely increasing as well. To this effect, this
+					visualization showcases the average buy side and sell side slips in terms of whether the transaction is a buy/sell flip or not. This is coupled with the
+					change in the price difference between the flips over time. The insight gained from this visualization is that there was a big period of many flips during the 2010s that contributed to
+					higher pricing for homes and more mortage-based transactions, especially by larger and institutional investors. Of course, the COVID-19 pandemic and the changes in the economy
+					led to lower trends for all of the properties mentioned, revealing that a lot of issues in housing tend to be linked to the overall economy.
+				</figcaption>
+		</figure>
+
+		</section>
+
+		<section>
+			<h2>Summary</h2>
+
+			<p>This data exploration via visualizations touched on various different topics like pricing of properties, usage of properties, flips, mortages, changes over time, etc.
+				The anaylsis started out with an overview of the data and its quality. Overall, the dataset is quite rich with more than 60 columns ranging from
+				numerical values like price with related columns for price difference and price difference in percentage, and indicator columns that are binary values
+				to represent whether the transaction has a property like a government buyer or not. There were many columns that had null values or 0s that had
+				meaning for the most part, but many pieces of information were incomplete as it was likely hard to gather detailed information on all of the
+				properties in the dataset over the 20 plus year period like amenities. This dataset focused on the city of Boston and had some zip codes represent a lot of
+				information as compared to other zip codes. The analysis began with an investigation of what makes a propety susceptible to speculation. As it turns out,
+				the type of property and what it is being used for along with the physical location/environment the property is located in dictates a lot whether
+				it will be invested in or not. In particular, the analysis focused on high-rises and saw that their increased mixed usage of residential and commerical
+				elements will make them more likely to be targets for investment in the future as there are many individuals and businesses to real the profits from. Both regular properties
+				and high-rises have grown in prices over time to really high numbers. Part of the reason for this is that the number of flips for a property seem to be
+				rising over time. This means that an investor buys a property and immediately sells it for higher price really soon. On the other hand, some investors
+				like to make even more profits by keeping the property and maybe doing some work on it for a while before selling it for an even higher price. This causes a big issue
+				of a propety being vacant, which reduces the supply of livable properties and thus causes a higher demand and higher home prices. Due to this increased costs,
+				there may be more transactions that are mortage-based for non-investors who need to have a place to stay. However, some investors like to just work with cash and invest in properties
+				as soon as they can to make profits. All of these insights lead to the ultimate insight of the fact that speculation overall increases the price of all properties and that
+				city of Boston is becoming even more elusive for average residents trying to find a livable place as the rich areas are becoming more rich and there isn't a lot of sign
+				to suggest that investors will forgo their profits for the sake of affordable housing anytime soon.
+			</p>
+		</section>
+	</main>
+</body>
+</html>
