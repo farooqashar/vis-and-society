@@ -1,0 +1,302 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>Vis & Society Assignment 3</title>
+	<link rel="stylesheet" href="https://vis-society.github.io/assignments/report.css" />
+</head>
+
+<body>
+	<header>
+		<h1>
+			<small>Assignment 3</small>
+			Visualization Critique & Redesign
+		</h1>
+
+		<p>
+			<strong>Ashar Farooq</strong> — <em>afarooq@mit.edu</em>
+		</p>
+	</header>
+
+	<main>
+		<section>
+			<h2>Reading & Critique</h2>
+
+			<figure>
+				<img src="https://vis-society.github.io/assets/imgs/covid-spiral.png" width="1000" alt="" />
+			</figure>
+
+			<p><b>
+				Insights about the data/visualization:
+			</b>
+			</p>
+
+			<ul>
+				<li>This is a progression of new COVID-19 cases over time in the United States. </li>
+				<li>It seems like there is not much cases in Jan/Feb of 2020, which makes sense since COVID-19 in the United States wasn't as paramount.
+					There is a slow pickup of cases right in March and then it grows steadily, which is interesting since that's when the lockdown chaos was happening.
+					It seems like the cases pick up again later that year in the summer.
+				</li>
+				<li>The fall of 2020 and the start of 2021 seem to be really bad in terms of the number of cases, which could be due to newer variants of
+					COVID-19 along with just the general fall/winter flu season and the general colder weather as people are more inside, leading to more sickness overall.
+				</li>
+				<li>The spring of 2021 and generally the spring/summer periods have fewer newer cases as there may be medical improvements over the year along with better, warmer weather. </li>
+				<li>The fall of 2022 saw a really big trend of new cases, correlating with the flu season, etc. It seems like there is a cyclic nature to these new COVID-19 cases as people may be more cautious, things improve,
+					people become less cautious, cases rise, etc. and this repeats.
+				</li>
+				<li>The start of 2022 saw the beginning of a really big increase of new cases. This will turn out to represent the Omicron variant of the COVID-19 pandemic, which saw many COVID-19 cases. </li>
+			</ul>
+
+			<p><b>
+				Design Critique:
+			</b>
+			</p>
+
+			<ul>
+				<li>The visualization is quite unique and grabs the attention of the reader with its unique spiral nature. The reader can see some keywords related to
+					timing, such as 2020, 2021, 2022, April, etc. This visual and textual encoding is quite good for the reader to assume that the main idea of this
+					visualization is that there are newer COVID-19 cases over some time. The visual encoding is quite expressive in the sense that it's unique and not as common
+					as bar charts, line charts, etc.
+				</li>
+				<li>The visualization revealing actual trends is a double-edged sword for me. On one hand, it does a good job of making the coloring segment bigger when there are
+					more cases. This makes it easy to see that there is something important going on when there is a bigger thing of red in the visualization. The improvement here however is in the
+					actual details or information that a reader may want to gain. Getting some more information about the trend is somewhat hard. For instance, not every line is marked up for the months, so
+					it actually took some time to determine what the radial axes were for me. After figuring that out and trying to find out the timing for the larger trends,
+					I would have to start at some labeled month and count forward/backward before I can find out the timing for the larger trends. This basic information is a little
+					hard to parse easily for the reader. The radial axes are also a bit granular in terms of the months, so seeing the trends for a section of the year like the fall season
+					requires some cognitive load to calculate and understand. A reader may just want to see the big big trend in a year extremely quickly without having to
+					do work. An improvement could be converting the scale to a seasonal scale or maybe even aggregate to a few months of data at a time.
+				</li>
+				<li>The important data is the new number of COVID-19 cases, but it may be harder to actually see the important data in the visualization. The wideness of the red thing
+					is supposed to tell the reader the magnitude of the new COVID-19 cases. There is a nice legend that after taking a look at it for a bit will inform the reader of this.
+					However, it is unclear as to how big the wideness needs to be to represent 150k new cases. I have a hard time measuring wideness on a digital screen and it seemed like
+					some of the wideness of the red thing is bigger than the largest width on the legend, so it was hard to know how many new cases there actually are, which seems like
+					an important data point. An improvement could be to change the legend to be more scaled and showcase the largest width of the visualization. Another improvment could be
+					to label parts of the visualization with actual new cases numbers in order to allow a reader to know the actual magnitude of the cases amount.
+				</li>
+				<li>It wasn't immediately clear where to begin to understand the visualization as it was just a spiral with colors and parts that became
+					really wide. I think making a visual bolding or color change on the arrows of the year could be a nice encoding to allow the reader to be drawn
+					to the direction of the spiral, which can begin to highlight how to read the visualization. Adding an icon like a checker flag for a start/finish point of the spiral
+					could be a nice visual indicator of the spiral progress through time and cases.
+				</li>
+				<li>The center is off-center, which is also a double-edged sword. On one hand, it may be needed since the width of some sections are too big for it to be a
+					big circle. On the other hand, the center being off and understanding that it relates to the radial axes of time took a while to understand. If there was a central orientation,
+					it may have been similar to a wall clock in terms of the axes/hands, which may be more familiar to a reader. In addition, having January and July in
+					the same radial straight line was a bit misleading at first. An improvement could be to just not having it fully straight or add an angle to differentiate the lines.
+				</li>
+			</ul>
+		</section>
+
+		<section>
+			<h2>Visualization Sketches</h2>
+
+      <figure>
+				<img src="sketch 1.jpeg" alt="" />
+				<figcaption>
+          This visualization showcases the average new confirmed COVID-19 cases from late 2019 to late 2022. The time axis represents the month and is in
+		  increasing order of time. The y-axis measures the average new confirmed cases in thousands, represented by a "K".
+				</figcaption>
+			</figure>
+
+			<p>
+				<b>Design Rationale for Sketch 1:</b>
+			</p>
+
+			<ul>
+				<li>The idea of using an area chart that is shaded in was intentionally done to allow the reader to get a sense of which time periods have
+					a larger area where there is a signficant increase in the number of COVID-19 cases. This shaded region is a bit easier for the reader to
+					look at and not become information-avoidant. This also allows the reader to get started with reading the sketch since they notice a trend line that
+					goes up and down, eventually noticing that larger area, higher line means the case count is quite high.
+				</li>
+				<li>To make it easier for the reader to distinguish a large case count and a small case count, small colorings are used on the local maxima and local minima
+					of the graph in order to reinforce to the reader that a local maxima means that there is a higher than the surrounding number of COVID-19 cases. The local maxima is
+					intentionally done in the color red to draw attention to the negative impact of a large number of cases. The local minima are coded in green to indicate
+					that the case count is not that bad. In the future, I think this may have to be contextualized with the deceased/mortality/serious issues data since
+					a lower case count does not always mean good as the severity of the cases do matter, thus a future improvement could be contextualizing the sketch
+					with information about severity, such as with the confirmed deceased metrics.
+				</li>
+				<li>The granularity of the time is still in months, but an improvement made is to list more months to allow for a reader who is data enthusiastic to be able to
+					decide on different months of different years, the average new case count. Having a y-axis with numerical case count values is also beneficial
+					for the purpose of showcasing the underlying data appropiately to the reader.
+				</li>
+			</ul>
+
+			<figure>
+				<img src="sketch 2.jpeg" alt="" />
+				<figcaption>
+          This sketch provides 3 separate entities that showcase the overall trends in each year for the number of new confirmed COVID-19 cases. The darker
+		  red color represents a higher number of new cases while the annotated numbers on the various parts of the circular clock represent the average number of
+		  new cases around that part of the year. There is an increasing passage of time going clockwise in terms of the months of the year.
+				</figcaption>
+			</figure>
+
+			<p>
+				<b>Design Rationale for Sketch 2:</b>
+			</p>
+
+			<ul>
+				<li>Getting inspired from the spiral nature of the original visualization, I decided to have the circular nature still represent passage of time, but with a clock instead of the
+					ellipse/circle from the original visualization. In this sketch, there is a circular clock that also represents the sun since we color in colors of varying intensity later on.
+					The sunshine rays/clock hands represent the months of the year and not the time since there is a progression in the sketch of going clockwise and the month
+					progressing to the next month. This was done in order to align with the reader's familiar sense of how a clock may work in terms of increasing passage of time.
+					The numbers on the hands/sunshine rays represent the number of the month of the year. In order to make it easier for the reader to understand this, there is also
+					some labeling of the month in text next to the numbers on the clock.
+				</li>
+				<li>The clock/circular nature resemble a sun as well with the sunshine rays. This was chosen since the color intensity being used changes depending on the number
+					of confirmed cases as you go clockwise and increase in time. This aligns with the sun idea since the sun also has varying colors to represent intensity of heat. In this case,
+					we make the intensity the number of new cases. For instance, we notice that there is a greater concentration of strong red color near the winter months,
+					which is easy to see for the reader and get the main idea really quickly. The lighter red color showcases a smaller number of new cases.
+				</li>
+				<li>In order to allow the underlying data to be more easily seen and for the reader to grab the main idea behind the number of new cases, there is an
+					annotation for each area of really strong red color, which represents a high number of cases. The annotated number represents the average new cases. This
+					is present in just the major spots in the visualization since the user just needs to really see what the case count numerically. This quantitative
+					measure can complement their qualititive assessment of which months have high case count. All in all, the combination of using varying levels of intensity in the color
+					and labeling these with actual case count numbers provides the easy, quick overview of trends and a greater detail in the actual numbers.
+				</li>
+				<li>There are 3 separate clocks/suns in the sketch since the case counts are separated by the years. This was done to allow readers to not
+					be subject to information overload and see all of the critical data for everything in one big spiral. This can ease the cognitive load as the
+					reader can focus on one year and visualize the key trends and gain some insights before continuing onwards. There is a risk here though of some
+					discontinuity in the analysis between the end of one year and the start of another year. The single clock could make that easier, but it is hard
+					to create a singular circular clock without creating loops of spirals, which I wanted to avoid to make the sketch more approachable. This analysis
+					is still possible though in the current sketch as the reader can see more intense red generally near the 12/1 hands or the winter months, thus
+					the end of one year and the beginning of another can still be compared.
+				</li>
+			</ul>
+
+			<figure>
+				<img src="sketch 3.jpeg" alt="" />
+				<figcaption>
+          This visualization within the contours of a human being shows the trend for the cumulative confirmed cases of the COVID-19 pandemic. The slopes represent
+		  the rate at which the cases are increasing with the y-axis representing the total case count over time. The time axis is in quarters of a year.
+				</figcaption>
+			</figure>
+
+			<p>
+				<b>Design Rationale for Sketch 3:</b>
+			</p>
+
+			<ul>
+				<li>The choice of using the contours of a human being is supposed to emotionally connect the reader to the fact that while these are cumulative
+					case count numbers, each number does represent a real human being who is being impacted, likely negative in some manner, by the COVID-19 pandemic.
+					The human figure is there to humanize the situation and assert the key idea that real people are being harmed by this virus. A future improvement
+					could be to include a story about a real person or add more human figures or human names in order to connect a number to a real person. This
+					creates an emotional sketch that can contextualize the reason we care about any of this about. The scale of the total case count is also quite high
+					and may not make sense to the reader in terms of the graveness, thus adding a human figure and element can help keep real human beings in the mind of the
+					reader.
+				</li>
+				<li>The choice of using cumulative case count was done to allow the reader to understand the total seriousness of the situation as millions of
+					people have this virus. The total count also creates a largely increasing graph that supposed to represent the growing number of cases overall.
+					This means that the slop of the graph represents the rate at which the total case count is increasing, thus the slopes are important. For this reason,
+					I have coded some of the steepest slopes in a red and slightly thicker markings. This is to draw the reader's attention to it and for them to
+					realize that the sharp increase in total case count means that there were many new cases being discovered.
+				</li>
+				<li>The choice of using quarters of the year as opposed to each month was intentionally done in order to allow the reader to really
+					grasp the main ideas of which parts of the year saw large number of new cases. This also creates a smaller set of words and bins for the time axis
+					and allows the reader to focus instead on the full visualization more easily. With this simplicity, the reader can quickly see what parts of the year are worse
+					for the virus, which typically includes Q4 and Q1, which correlates to our thinking that the winter months are the worst due to staying indoors or flu, etc. Distiguishing
+					between total case count for August and September is not really that important as compared to total case count for the summer months and the fall months,
+					thus sectioning into quarters of a year seems cleaner.
+				</li>
+			</ul>
+		</section>
+
+		<section>
+			<h2>Final Visualization Design</h2>
+
+			<figure>
+				<img src="Heatmap.png" width="1000" alt="" />
+				<figcaption>
+          This heatmap showcases the average new confirmed cases of the COVID-19 pandemic over time. Both the x and the y axes represent time. Both are segmented into quarters of a year.
+		  The annotated numbers on the visualization represent a snapshot average case count for a given quarter of a year.
+				</figcaption>
+			</figure>
+
+		</section>
+
+		<section>
+			<h2>Design Process & Design Decisions</h2>
+
+			<p>
+        The reasoning for choosing this heatmap visualization showcasing the average case count of new COVID-19 cases was grounded in simplicity, easy to understand, and
+		allowing the main ideas to shine through with an opportunity for readers who want to gain more quantitative information to be able to do so.
+		To this effect, the main story that the visualization is trying to paint is the time periods where there were large number of new cases. In other words,
+		the visualization seeks to point out really quickly when there were lots of new cases, which itself leads to many consequences like lockdowns, changing policies,
+		overwhelmed hospitals, etc. To this effect, the goal is to understand when the state of the world was worse off. For readers who actually want to understand the numerical
+		measures of the case count, annotated values provide that opportunity. The overall visualization is easy to understand since it is essentially a bunch of
+		circles and balls with varying colors to represent the degree/magnitude of average case count quickly to the reader without having to do any sort
+		of cognitive work.
+		</p>
+
+		<p>
+		Few design decisions that were made to make the visualization simple to understand without requiring calculations were to have the segmentation of time into quarters and
+		to have both axes represent time in quarters. In the original New York Times visualization, it was hard to quickly see the time for some of the largest and central trends. Therefore,
+		this visualization makes it easy to tell the general time of the central trends because there are fewer bins on the time axes. This is ok to do since
+		the story this visualization is trying to tell is what general parts of the year are the worse for new cases. This can be solved by dividing the year into
+		quarters as a reader doesn't need to necessarily know the case count difference between October and November, but rather how the few months of the fall looked like in terms of cases.
+		There is extra information here that may not be needed and can make a visualization hard to read and maybe even guide people to be information avoidant.
+		Once the time is divided into quarters, another decision was to have a dual axis representing time in order to allow the reader to find a given circle
+		in the visualization and go towards any axis and find the part of the year in question. This is a change from the original New York Times visualization where
+		there was some mental counting work required to determine the exact month of the case count numbers. The dual-axis makes it faster to identify the time.
+		There is also a design decision to sort these quarters in order to show the progression of time from 2020 to 2022 across and down the axes. This allows the
+		intersection of the axes to be also increasing in the entire visualization, which aligns with the reader's intuition that there is a passage of time overall. I think
+		this is simpler and cleaner than a spiral with multiple loops as this is simply easier to read while providing more valuable information to the reader.
+	</p>
+	<p>
+		In terms of identifiying the central trends, the design decisions of the colors makes this really easy in addition to annotating the circles with numerical case counts.
+		The color scheme is a Red-Green-Gold Diverging style where the darker green represent a greater intensity that reveals a high number of new cases. Circles closer
+		to the gold side represent fewer average new cases. This is useful since the user is immediately able to find the darkest color and find when this was by
+		going to any axis. For readers that are interested in seeing the underlying data as well, each circle is annotated with the average new case count for a given
+		quarter, thus the reader is able to compare the different quarters quantitatively with numerical values along with qualitative color analysis. There is a
+		legend provided in the visualization that aims to showcase the gradient of the colors and the case count they represent. Note the comparison of this to the original
+		New York Times visualization where it was hard to determine the exact case count based on the width alone in the spirals. In this visualization, we have
+		real numerical values right on the plot itself without having to guess any width or do other mathematical calculations. Note that the legend also has the full
+		spectrum of the gradient from 0 case count to the highest case count that is displayed in the visualization in order to make sure the reader is not left
+		confused.
+	</p>
+
+	<p>
+		A data transformation that was done was to filter the dates to essentially only use a subset of data for the 2022 year. In particular, the last part of Q4 of 2022 is
+		left out in the data used for the visualization. This is done for 2 reasons. First, inclusion of 2022 Q4 data would reveal a decline in the new case count whereas all the other
+		quarters in the visualization show an increase. This would lead the user to think that the reduction of case count in this time segment is the point of the visualization, which it is not.
+		The main purpose of the visualization is to reveal what time periods have the worst case counts quickly and easily. Adding data for late 2022 and into 2023 would be also not
+		within the context of the New York Times article, whose visualization stop at the start of 2022 when the Omicron variant is taking off. COVID-19 policies also
+		were changing quite a lot in later 2022, thus there are many external factors that affected the average new case count, so it was filtered out.
+
+	</p>
+	<p>
+		With the visualization only showing the average new case count for quarters of a year, it is possible that there is now less precise information for each month as we
+		aggregate a few months together and compute that statistic. This may be a good thing for people who may be information avoidant and prefer simpler, manageable
+		visualizations, which is the intention behind this revised visualization. However, those that want to see more details will not find the specifics of a particular month
+		or anything to do with other metrics like total new case count, total tested, total deceased, and any percentage changes in the metrics. The main dimension for this
+		visualization is just new COVID-19 cases, but some context into how testing for the new variant looks like and the changes in government policies/requirements along with
+		people's perception of the virus are all down-played by the visualization. An improvement for the next iteration could be adding more layers to the visualization for testing in
+		the different quarters of the year, etc.
+	</p>
+
+      </p>
+
+      <h3>Reflection</h3>
+
+      <p>
+        I think my final design is fairly influenced by the "critique by redesign" idea and the original critiques I talked about earlier. In particular,
+		the original visualization was cool-looking and showcased an interesting way to show passage of time and the new cases count, but it seemed to require some
+		mental/cognitive start up time to understand the key trends. I addressed this larger category of critique by making my visualization much easier to read with circles, a dual axis
+		to find the time period for the case count really quickly and a diverging color scheme to highlight a higher case count with darker color. These changes made it easier
+		to figure out where to start and to be able to read it. I addressed another critique of the original visualization by adding a way to see a more accurate
+		quantitative measure of the case count for a given part of a year. There was some cognitive workload to understand the case count in the original visualization, but this new
+		one has annotated case count numbers to provide some real numerical values for any comparisons and analysis the reader may want to make. This is in addition to the
+		qualititive diverging color scheme to allow the reader both quick interpretation of the main idea, but also investigate it with the underlying data.
+		</p>
+		<p>
+		In addressing the critiques, I experimented with the sketches, such as Sketch 1 dealing with red/green coloring to indicate good/bad case count, Sketch 2 showcasing a passage of time, and
+		Sketch 3 showcasing a human element to all of it. I was able to add some diverging color scheme and showcase a progression of time without using spirals.
+		However, I wasn't able to fully humanize the visualization as there are many case count numbers on the figure, but each one does represent a real human being who
+		may be ill or hospitalized because of the virus. However, there is a tradeoff in terms of redesigning the visualization to cover all of the critique as too much
+		information overload or encoded pieces in the visualization will push the reader away as they won't understand what the main takeaway is. Critiquing the original design
+		was quite helpful in determing that these tradeoffs exists and I can't simply add all of the numerical values in a visualization as too much data won't align with human
+		expectations. To this effect, this is why dashboards are powerful as they can create a few of these explainable and easy to understand visualizations in one interactive place.
+		This allows the reader to engage with one figure at a time potentially to understand more data and gather more key insights.
+      </p>
+		</section>
+	</main>
+</body>
+</html>
