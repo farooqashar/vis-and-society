@@ -1,0 +1,136 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>Vis & Society Assignment 3</title>
+	<link rel="stylesheet" href="https://vis-society.github.io/assignments/report.css" />
+</head>
+
+<body>
+	<header>
+		<h1>
+			<small>Assignment 4</small>
+			Persuasive or Deceptive Visualization?
+		</h1>
+
+		<p>
+			<strong>Ashar Farooq</strong> — <em>afarooq@mit.edu</em>
+		</p>
+	</header>
+
+	<main>
+    <h2>Proposition: Countries with higher renewable energy consumption have lower CO₂ emissions per capita.</h2>
+
+		<section>
+      <h3>FOR the Proposition</h3>
+
+      <figure>
+				<img src="Renewable Energy Use Drives Down CO₂ Emissions.png" alt="" />
+				<figcaption>
+					This scatter plot shows a negative correlation between renewable energy consumption and CO₂ emissions per capita. Countries that use more renewable energy tend to have lower emissions, supporting the claim that increasing renewable energy helps reduce greenhouse gases.
+				</figcaption>
+			</figure>
+
+			<p>
+				Design Decisions and Rationale:
+			</p>
+
+			<ul>
+				<li><b>Choosing a Scatter Plot (+2).</b> This was done in good faith in order to show the relationship between renewable energy and C02 emissions in the clearest
+				way possible. I tried some more complicated density graphs, correlation graphs, and other ways to just give the data to the reader. However, providing
+			as much of the data in numerical raw form was just confusing to me and likely the reader, so I settled on an effective scatter plot to showcase the relationship. This is
+		helpful for persuading the reader that the relationship is strong.</li>
+				<li><b>Adding a Trend Line (+1.5).</b> This was done mainly as another visual indicator that the relationship between renewable energy and C02 emissions is
+				a strong inverse relationship. In other words, I added this after the scatter plot to allow the reader to just focus on a simple trend line if they do no want
+			to take on some cognitive load to understand the scatter plot relationship. This trend line is a simple reinforcement of more renewable energy leading to less C02 emissions.
+		Of course, there is a little subtle deceptiveness of the fact that the relationship may not be causal truly and simply be correlated. Regardless, the relationship seems authentic for this use case. </li>
+				<li><b>Filtering Out High C02 Emitting Countries (-1).</b> When I created the visualization originally, the trend line and the relationship was not that strong as the trend
+				line was not steep enough. To reinforce that the relationship is strong, I decided to take out some values that might be weakening the relationship. To this effect,
+			I decided to filter by countries/values where the C02 emissions are at most about 22 metric tons per capita. This makes the argument stronger since the Y axis gets "smaller" and the
+		trend line/relationship appears stronger, which persuades the reader regarding a more stronger/authentic/legit relationship. </li>
+		<li><b>Using Linear Scale for C02 Emissions (+1).</b> I essentially created the visualization in good faith and tried to represent the relationship in scales and measures that a
+		normal person would expect, so a linear scale made sense. This can add some legitimacy to a reader since often times, the visualization may look not legit if we
+		start changing various axes in abnormal ways to the point it gets complicated to understand. This was a earnest decision. </li>
+		<li><b>Filtering out Renewable Energy Null Values (+2). </b> I saw that there were decent amount of null values for the renewable energy metric and it was casting a doubt on whether the relationship
+		will change if I kept or removed them. To this effect, I checked both cases and it seemed to be fairly similar in the overall portrayal of the relationship. However, I decided to keep the raw data
+	used for the visualization as clean as possible by removing the null values that don't quite represent the real-world scenario as realistically. </li>
+	<li><b>Title Wording (-1). </b> I basically decided to put the main story that I was trying to paint with the visualization front and center in the visualization title. This is a persuasive
+			strategy since the reader will probably read the title first and then the visualization. Confirmation bias will do the rest of the trick in allowing the reader
+		to believe the relationship and story.</li>
+		<li><b>Choosing Green-ish Color (-1).</b> The green coloring typically means good, so I tried using green to represent the supportive argument that renewable energy leads to less C02 emissions.</li>
+			</ul>
+    </section>
+
+    <section>
+      <h3>AGAINST the Proposition</h3>
+
+      <figure>
+				<img src="High Renewable Energy Doesn’t Mean Low CO₂ Emissions.png" width="1000" alt="" />
+				<figcaption>
+					This bar chart highlights countries with high renewable energy consumption (top 50%) but still high CO₂ emissions per capita. Despite investing in renewables, these countries continue to produce significant greenhouse gases, thus renewable energy alone does not reduce CO₂ emissions.
+				</figcaption>
+			</figure>
+
+			<p>
+				Design Decisions and Rationale:
+			</p>
+
+			<ul>
+				<li><b>Using a Bar Chart (+1).</b> I wanted to make it obvious that some high-renewable-energy countries still have high CO₂ emissions per capita. To
+				this effect, I experimented with a grid layout of the countries, some maps, etc. All of these didn't really make it easy as there was some further finding, reading,
+			and interpreting that was needed for some other visualization types. To make it quite simply for the reader with earnest motivations, I went with a bar chart
+		for countries and what their C02 emission levels were. This causes the reader to sense that the traditional relationship of more renewable energy may not mean low C02 emissions all the time. </li>
+				<li><b>Sorting the C02 Emissions In Descending Order (+1).</b> I originally just created the bar chart and saw that some high-renewable energy countries have
+					high C02 emissions, but I couldn't easily tell which countries they were. There were many bars with varying sizes all spread out, which made it harder to see the highest bars easily.
+					The sorting of the countries by the C02 emissions made this easy. This is likely earnest in order to allow the reader to see these countries that are "outliers"/"extreme", but
+					some may say that the current sorting order draws extra attention to the top of the bar chart where there is lots of C02 emissions happening. I still think
+					a reader may want a nice sorted graph though.
+				</li>
+				<li><b>Filtering to Only Show High-Renewable-Energy Countries (-1).</b> The entire premise of the visualization is to showcase that
+				countries that are really good at renewable energy and invest in it seems to have high levels of C02 emissions. To this effect, I had to filter
+			the countries being shown in the visualization to have atleast 50 percent renewable energy consumption. This made it so that the reader can focus on what's happening
+					in countries that are actually renewable with the goal that they will see that there are still bad environmental things in these countries. I originally went with
+				25 percent renewable energy consumption filter, but that showed too many countries in the visualization. Thus, I decided to make the argument stronger by looking at
+			extremely renewable countries to drive home the point that bad things are happening in these good countries. </li>
+
+			<li><b>Applying a Logarithmic Scale to C02 Emissions (-1.5). </b> When I originally created the visualization, I saw a few countries at the top of the figure that
+			had long bars to represent high levels of C02 emissions. This was good for this argument. However, as I scrolled down, I saw that many many countries actually had smaller
+		numbers of C02 emissions as I went down. The bars were too small and that could lead a reader to say that the argument of the visualization is not that legit. Therefore,
+	I made the scale logarithmic to have the differences in emissions look more extreme. This basically exaggerates the bars and more of them become longer as I scroll down the visualization, making
+the argument that good renewable countries have bad levels of C02 emissions.</li>
+
+			<li><b>Title Wording (-1). </b> I basically decided to put the main story that I was trying to paint with the visualization front and center in the visualization title. This is a persuasive
+				strategy since the reader will probably read the title first and then the visualization. Confirmation bias will do the rest of the trick in allowing the reader
+			to believe the relationship and story.</li>
+			<li><b>Choosing Red-ish Color (-1).</b> The red coloring typically means bad, so I tried using red to represent the opposing argument that renewable energy does not lead to C02 emissions always.</li>
+			</ul>
+    </section>
+
+    <section>
+      <h2>Final Reflection</h2>
+
+      <p>My design process for both visualizations was heavily iterative, which helped out with many of the challenges of trying to mislead the traditional
+		story a data might tell. After analyzing the data, I saw that there are outliers in the countries that have renewable energy, but also have a lot of C02 emissions.
+		This is true generally as most indicators and data will have outliers that can be used to create authentic persuasive visualization or a deceptive visualization. This seems
+		easy to do as one can create visualizations to put into or out of focus the outliers. For my supportive visualization, I found it surprising that it was
+		quite easy to get the basic relationship down with first iterations of the visualization. I think this is because this is probably what the data overall represents and
+		may be the truth, although that is hard to know for sure. My process afterwards then became how to strengthen the argument, which is when I decided to filter some values and fit the
+		visualization to my story. This seems deceptive, but is partially based on the underlying story the raw data may be trying to do.
+		</p>
+		<p>
+		This can be compared with the opposing visualization, which I thought was more challenging as there were more steps required to make it legit enough. I had to filter out many countries
+		that were following the traditional relationship to make the visualization highlight the nuanced relationship. I went through many iterative designs that included filtering, sorting, labeling,
+		coloring, labeling, annotating, etc. as I was trying to find a balance between too much information that can maybe show some skeptcism to the reader versus concise
+		visualization that showcases confidence in its story.
+		</p>
+		<p>
+		I think ethical analysis and visualization is quite hard as many times, the creators of visualizations are fitting the data to their own story versus having
+		the data tell them the story. Doing this exercise also made me feel like I am playing a game or trying out different parameters to make the output as close to what I want as possible.
+		If I had to draw a bound between acceptable versus misleading design choices, I would say that changing up a visualization to show that a relationship is
+		slightly stronger is much better than creating a visualization that just argues the opposite point. In other words, I felt much ok about design choices, even
+		deceptive ones in the supportive visualization than the opposing visualization since the former seemed like a legit relationship, so appearing
+		to show that in a stronger sense in the visualization was perhaps ok.
+	  </p>
+    </section>
+	</main>
+</body>
+</html>
